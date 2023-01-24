@@ -10,6 +10,6 @@ public interface TicketService {
     Ticket generateNew(Ticket ticket);
     Set<Ticket> retrieveAll();
     Ticket findOneById(long id);
-    Set<Ticket> findManyByAgent(long AgentId);
+    Set<Ticket> findManyByAgent(String AgentId);
 
 }

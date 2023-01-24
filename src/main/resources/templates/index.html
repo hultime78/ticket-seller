@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand">TRANSCO TS BUS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                <li class="nav-item dropdown">
+                    <a  class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Recettes</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" th:href="@{/admin/infraction/daily}"class="dropdown-item">Recettes journalières</a></li>
+                        <li><a href="#" th:href="@{/admin/infraction/repository}" class="dropdown-item">Recettes mensuelles</a></li>
+                        <li><a href="#" th:href="@{/admin/infraction/repository}" class="dropdown-item">Recettes annuelles</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a  class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Inventaire</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" th:href="@{/admin/recipe/payment}" class="dropdown-item">Bus</a></li>
+                        <li><a href="#" th:href="@{/admin/recipe/release}" class="dropdown-item">Pièces de rechange</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a  class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Agents</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item">Management</a></li>
+
+                    </ul>
+
+                </li>
+
+
+                <li class="nav-item"><a href="#" class="nav-link">Déconnexion</a></li>
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+
+<div class="row page-hero" >
+    <div class="col-md-12">
+        <h4 class="panel-title">Recettes du Jeudi 08/03/2023</h4>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-md-3">
+        <h6>Total tickets imprimés: <em>645</em> </h6>
+    </div>
+
+    <div class="col-md-3">
+        <h6>Recette Totale: <em>5 494 000 (CDF)</em> </h6>
+    </div>
+
+    <div class="col-md-3">
+        <h6>cash: <em>4 490 000 (CDF)</em> </h6>
+    </div>
+
+</div>
+
+    <div class="row">
+
+        <div class="col-md-12 card">
+            <table   class="table table-striped table-md table-borderless">
+                <tr>
+                    <thead>
+                    <th>#id</th>
+                    <th>Coût</th>
+                    <th>Destination</th>
+                    <th>id bus</th>
+                    <th>Agent</th>
+                    <th>date</th>
+                    </thead>
+                </tr>
+                <tbody>
+
+                <tr th:each="ticket : ${ticketList}">
+                    <td th:text="${ticket.id}"></td>
+                    <td th:text="${ticket.cost}"></td>
+                    <td th:text="${ticket.destination}"></td>
+                    <td ><a href="#" th:text="${ticket.agent.idBus}"></a></td>
+                    <td th:text="${ticket.agent.id}"></td>
+                    <td th:text="${ticket.date}"></td>
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+</body>
+</html>

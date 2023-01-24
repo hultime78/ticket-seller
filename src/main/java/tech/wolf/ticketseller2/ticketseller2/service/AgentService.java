@@ -9,6 +9,6 @@ public interface AgentService {
 
     Agent addNew(Agent agent);
     List<Agent> findAll();
-    Agent findOne(long id);
-    boolean delete(long id);
+    Agent findOne(String id);
+    boolean delete(String id);
 }

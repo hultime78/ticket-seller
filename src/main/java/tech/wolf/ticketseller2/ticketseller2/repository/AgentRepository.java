@@ -1,7 +1,9 @@
 package tech.wolf.ticketseller2.ticketseller2.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import tech.wolf.ticketseller2.ticketseller2.model.Agent;
 
-public interface AgentRepository extends JpaRepository<Agent, Long> {
+@Repository
+public interface AgentRepository extends JpaRepository<Agent, String> {
 }

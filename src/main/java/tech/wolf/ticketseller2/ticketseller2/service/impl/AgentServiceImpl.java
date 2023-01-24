@@ -1,5 +1,6 @@
 package tech.wolf.ticketseller2.ticketseller2.service.impl;
 
+import org.springframework.stereotype.Service;
 import tech.wolf.ticketseller2.ticketseller2.model.Agent;
 import tech.wolf.ticketseller2.ticketseller2.repository.AgentRepository;
 import tech.wolf.ticketseller2.ticketseller2.service.AgentService;
@@ -7,6 +8,7 @@ import tech.wolf.ticketseller2.ticketseller2.service.AgentService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AgentServiceImpl implements AgentService {
 
     AgentRepository repo;
@@ -26,7 +28,7 @@ public class AgentServiceImpl implements AgentService {
     }
 
     @Override
-    public Agent findOne(long id) {
+    public Agent findOne(String id) {
         Optional<Agent> agent=repo.findById(id);
         if(agent.isPresent()){
             return agent.get();
@@ -34,7 +36,7 @@ public class AgentServiceImpl implements AgentService {
     }
 
     @Override
-    public boolean delete(long id) {
+    public boolean delete(String id) {
         Optional<Agent> agent=repo.findById(id);
         if(agent.isPresent()){
             repo.delete(agent.get());

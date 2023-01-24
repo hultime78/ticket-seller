@@ -1,12 +1,11 @@
 package tech.wolf.ticketseller2.ticketseller2.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 @Entity
 @Data
@@ -19,5 +18,8 @@ public class Ticket {
     Long id;
     long cost;
     String destination;
-    long AgentID;
+    @OneToOne
+    @JoinColumn(name = "agent_Id")
+    Agent agent;
+    Date date;
 }

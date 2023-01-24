@@ -17,4 +17,5 @@ public class Agent {
     String id;
     String password;
     String type;
+    String idBus;
 }
